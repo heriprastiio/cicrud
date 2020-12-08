@@ -56,12 +56,13 @@ class User_login extends CI_Controller
 
 	function aksiedit()
 	{
-		$fname = $this->input->post('namaper');
-		$datainput = array($fname,
-			'lastname' => $this->input->post('namaked'),
-			'email' => $this->input->post('email'),
-			'password' => $this->input->post('pass'));
-		$this->User_model->edit($datainput, $fname);
+		$arraypost = array($this->input->post('namaper'), $this->input->post('namaked'), $this->input->post('email'), $this->input->post('pass'));
+		$ekstarkdata = array('firstname' => $arraypost,
+			'lastname' => $arraypost,
+			'email' => $arraypost,
+			'password' => $arraypost);
+		$this->User_model->edit($ekstarkdata, $arraypost);
+
 		redirect(base_url('User_login/index'));
 	}
 }

@@ -37,12 +37,12 @@
 		<td><?php echo $row->firstname;?></td>
 		<td><?php echo $row->lastname;?></td>
 		<td><?php echo $row->email;?></td>
-		<td width="40" align="left"><a href="<?php base_url('bassiccrud/Userview');?>" onclick="show_confirm('edit',<?php echo $row->firstname;?>)">Edit</a> </td>
+		<td width="40" align="left"><a href="<?php base_url('bassiccrud/Userdo');?>" onclick="show_confirm('edit',<?php echo $row->firstname;?>)">Edit</a> </td>
 		<td width="40" align="left"><a href="#" onclick="show_confirm('delete',<?php echo $row->firstname;?>)">Delete</a> </td>
 	</tr>
 	<?php endforeach;?>
 	<tr>
-		<td colspan="7" align="right"><a href="<?php echo base_url();?>basiccrud/userview/addform">Tambah Baru</a> </td>
+		<td colspan="7" align="right"><a href="<?php echo base_url();?>basiccrud/Userdo/addform">Tambah Baru</a> </td>
 	</tr>
 </table>
 
