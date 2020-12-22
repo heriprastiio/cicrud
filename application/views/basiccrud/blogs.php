@@ -10,11 +10,13 @@
     <!-- <?php print_r($blogs);?> -->
     <?php foreach($blogs as $key=> $val):?>
         <div class="blog">
-            <h2><?php echo $val['judul']?></h2>
-            <?php echo $val['content'];
-
+            <h2>
+            <a href="<?php echo site_url('/basiccrud/Blog/detail/' . $val['url']);?>">
+            <?php echo $val['judul'];?>
+            </a>
+    </h2>
+    <?php echo $val['konten'];
     endforeach;
     ?>
-        </div>
 </body>
 </html>
