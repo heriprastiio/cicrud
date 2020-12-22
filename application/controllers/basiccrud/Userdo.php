@@ -27,4 +27,11 @@ public function insertnewuser(){
 		header('Location'.base_url()."basiccrud/userdo/".$this->index());
 	}
 }
+public function doedit()
+{
+	# code...
+	$id = $this->uri->segment(3);
+	$data['user'] = $this->Users_model->getbyid($id);
+	$this->load->view('edit', $data);
+}
 }
