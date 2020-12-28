@@ -5,6 +5,7 @@ class Blog extends CI_Controller{
         # code...
         parent::__construct();
         $this->load->database();
+        $this->load->model('basiccrud/Blogmodel');
     }
     public function index(){
         // $this->load->database();
@@ -22,5 +23,17 @@ class Blog extends CI_Controller{
         $data['blogskey'] = $query->row_array();
         $this->load->view('/basiccrud/detail',$data);
     }
+    public function tambah()
+    {
+        # code...
+        if ($this->input->get()){
+            $data['judul'] = $this->input->get('judul');
+            $data['konten'] = $this->input->get('content');
+            // print_r($data);
+            $this->Blogmodel->insertdataBlog($data);
+        }
+        $this->load->view('/basiccrud/form_tambah');
+    }
+
 }
 ?>
