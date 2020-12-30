@@ -27,8 +27,8 @@ class Blog extends CI_Controller{
     {
         # code...
         if ($this->input->get()){
-            $data['judul'] = $this->input->get('judul');
-            $data['konten'] = $this->input->get('content');
+            $data['judul'] = $this->input->post('judul');
+            $data['konten'] = $this->input->post('konten');('content');
             // print_r($data);
             $this->Blogmodel->insertdataBlog($data);
         }

@@ -7,7 +7,7 @@
 </head>
 <body>
     <h1>Tambah Artikel</h1>
-    <form method="GET">
+    <form method="POST">
         <div>
             <label for>Judul</label>
             <input type="text" name="judul">
