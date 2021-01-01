@@ -13,16 +13,6 @@ class Blog extends CI_Controller{
         $data['blogs'] = $query->result_array();
         $this->load->view('/basiccrud/blogs',$data);
     }
-    public function detail($url){
-        // $this->load->database();
-        $this->db->where('url',$url);
-        // $query = $this->db->query('Select * from blog where url = "'.$url.' " ');
-        // $data['blog'] = $query->row_array();
-        // print_r($data);
-        $query = $this->db->get('blog');
-        $data['blogskey'] = $query->row_array();
-        $this->load->view('/basiccrud/detail',$data);
-    }
     public function tambah()
     {
         # code...
