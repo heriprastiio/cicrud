@@ -6,7 +6,7 @@
 	<title>Document</title>
 </head>
 <body>
-<form method="post" action="<?php echo base_url(); ?>/codepolitan/Blog/add/">
+<?php echo form_open_multipart();?>
 	<div>
 		<label>Judul</label>
 		<input type="text" name="judul">
@@ -18,6 +18,10 @@
 	<div>
 		<label>Konten</label>
 		<textarea name="konten" cols="30" rows="10"></textarea>
+	</div>
+	<div>
+		<label>Upload Cover</label>
+		<?php echo form_upload('content', null, 'class="form-control"')?>;
 	</div>
 	<button type="submit">Simpan Artikel</button>
 </form>

@@ -29,4 +29,9 @@ class Blog_model extends CI_Model{
     	return $this->db->affected_rows();
 
 	}
+	public function deleteDataBlog($id){
+    	$this->db->where('id',$id);
+    	$this->db->delete('blogcoursecodepolitan');
+    	return $this->db->affected_rows();
+    }
 }

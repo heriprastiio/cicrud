@@ -6,20 +6,20 @@
 	<title>Document</title>
 </head>
 <body>
-	<form method="post" action="<?php echo base_url('/codepolitan/blog/edit/'.$blog['id']); ?>">
+<form method="post" action="<?php echo base_url('/codepolitan/blog/edit/' . $blog['id']); ?>">
 	<h1>Form Edit Artikel</h1>
 	<div>
 		<label>Judul</label>
-		<input type="text" name="judul" value="<?php echo $blog['title'];?>">
+		<input type="text" name="judul" value="<?php echo $blog['title']; ?>">
 	</div>
 	<div>
 		<label>URL</label>
-		<input type="text" name="link"  value="<?php echo $blog['url'];?>">
+		<input type="text" name="link" value="<?php echo $blog['url']; ?>">
 	</div>
 	<div>
 		<label>Konten</label>
-		<textarea name="konten" cols="30" rows="10" >
-		<?php echo $blog['content'];?>
+		<textarea name="konten" cols="30" rows="10">
+		<?php echo $blog['content']; ?>
 		</textarea>
 	</div>
 	<button type="submit">Simpan Artikel</button>

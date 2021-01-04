@@ -7,6 +7,14 @@ class Blog extends CI_Controller
 		parent::__construct();
 		$this->load->model('codepolitan/Blog_model');
 		$this->load->database();
+//		$this->load->helper(array('form','url'));
+	}
+
+	public function index()
+	{
+		$querydb = $this->db->get('blogcoursecodepolitan');
+		$data['blogview'] = $querydb->result_array();
+		$this->load->view('codepolitan/blogs',$data);
 	}
 
 	//Tambah
@@ -16,6 +24,24 @@ class Blog extends CI_Controller
 			$data['title'] = $this->input->post('judul');
 			$data['content'] = $this->input->post('konten');
 			$data['url'] = $this->input->post('link');
+
+			$config['upload_path']          = './uploads/';
+			$config['allowed_types']        = 'gif|jpg|png';
+			$config['max_size']             = 100;
+			$config['max_width']            = 1024;
+			$config['max_height']           = 768;
+
+			$this->load->library('upload', $config);
+
+			if ( ! $this->upload->do_upload('cover'))
+			{
+				echo $this->upload->display_errors();
+			}
+			else
+			{
+				print_r($this->upload->data());
+				exit;
+			}
 			print_r($data);
 			// var_dump($data);
 			$this->Blog_model->adddata($data);
@@ -51,6 +77,16 @@ class Blog extends CI_Controller
 			else
 				echo "Data gagal disimpan";
 		}
-		$this->load->view('/codepolitan/form_edit',$data);
+		$this->load->view('/codepolitan/form_edit', $data);
+	}
+
+	public function hapus($id)
+	{
+		$this->Blog_model->deleteDataBlog($id);
+		redirect('/');
+	}
+	public function do_upload()
+	{
+
 	}
 }
